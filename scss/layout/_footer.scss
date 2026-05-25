@@ -315,7 +315,28 @@
         background: $brand-copper-soft;
       }
 
-      a { color: $brand-copper-soft; font-weight: 600; }
+      .heart {
+        display: inline-block;
+        transform-origin: center;
+        animation: heart-beat 1.6s ease-in-out infinite;
+        filter: drop-shadow(0 0 4px rgba($brand-copper, 0.55));
+      }
+
+      a {
+        color: $brand-copper-soft;
+        font-weight: 600;
+        font-style: normal;
+        transition: color .25s $ease;
+        &:hover { color: $paper; }
+      }
     }
   }
+}
+
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1); }
+  18%      { transform: scale(1.22); }
+  36%      { transform: scale(1); }
+  54%      { transform: scale(1.16); }
+  72%      { transform: scale(1); }
 }

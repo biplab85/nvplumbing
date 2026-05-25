@@ -924,11 +924,39 @@ a:hover {
   height: 1px;
   background: #E89A65;
 }
+.footer__bottom .credit .heart {
+  display: inline-block;
+  transform-origin: center;
+  animation: heart-beat 1.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px rgba(196, 107, 45, 0.55));
+}
 .footer__bottom .credit a {
   color: #E89A65;
   font-weight: 600;
+  font-style: normal;
+  transition: color 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.footer__bottom .credit a:hover {
+  color: #FFFFFF;
 }
 
+@keyframes heart-beat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  18% {
+    transform: scale(1.22);
+  }
+  36% {
+    transform: scale(1);
+  }
+  54% {
+    transform: scale(1.16);
+  }
+  72% {
+    transform: scale(1);
+  }
+}
 .btn {
   display: inline-flex;
   align-items: center;
