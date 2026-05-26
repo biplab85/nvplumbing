@@ -327,7 +327,13 @@
         font-weight: 600;
         font-style: normal;
         transition: color .25s $ease;
+        letter-spacing: 0.01em;
         &:hover { color: $paper; }
+
+        .credit-bold {
+          font-weight: 800;
+          letter-spacing: 0.06em;
+        }
       }
     }
   }

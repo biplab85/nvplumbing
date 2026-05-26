@@ -9,12 +9,16 @@ import { initNav } from './nav.js';
 import { initAccordion } from './accordion.js';
 import { initReveals } from './reveals.js';
 import { initForm } from './form.js';
+import { initTestimonials } from './testimonials.js';
+import { initWorkSlider } from './work-slider.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initAccordion();
   initReveals();
   initForm();
+  initTestimonials();
+  initWorkSlider();
 
   // current year in footer
   const y = document.getElementById('year');

@@ -13,7 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="dist/css/styles.css" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230E2A47'/><path d='M32 14c-7 9-12 16-12 24a12 12 0 0024 0c0-8-5-15-12-24z' fill='%235FB0E6'/></svg>" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/img/favicon.png" />
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -21,26 +22,48 @@
   <!-- ─── Header ───────────────────────────────────────── -->
   <header class="header" id="site-header">
     <div class="header__inner">
-      <a href="#top" class="logo" aria-label="NV Plumbing — home">
+      <a href="#top" class="logo" aria-label="NV Plumbing — Trust the Best, Flush the Rest">
         <span class="logo__crest" aria-hidden="true">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <path id="lg-top-arc" d="M 50,50 m -38,0 a 38,38 0 0,1 76,0" />
-              <path id="lg-bot-arc" d="M 50,86 a 36,36 0 0,0 0,-72 a 36,36 0 0,0 0,72" />
+              <!-- Top arc: text reads left→right along the top -->
+              <path id="lg-top-arc" d="M 50,50 m -39,0 a 39,39 0 0,1 78,0" />
+              <!-- Bottom arc: text reads left→right along the bottom (path goes right→left) -->
+              <path id="lg-bot-arc" d="M 11,50 a 39,39 0 0,0 78,0" />
             </defs>
-            <circle cx="50" cy="50" r="48" fill="none" stroke="#0E2A47" stroke-width="1"/>
-            <circle cx="50" cy="50" r="44" fill="none" stroke="#C46B2D" stroke-width="0.5"/>
-            <text font-family="Helvetica, Arial, sans-serif" font-size="6" font-weight="700" fill="#0E2A47" letter-spacing="3">
-              <textPath href="#lg-top-arc" startOffset="50%" text-anchor="middle">PLUMBING · SYDNEY</textPath>
+
+            <!-- Rings -->
+            <circle cx="50" cy="50" r="49"  fill="#FFFFFF"/>
+            <circle cx="50" cy="50" r="48"  fill="none" stroke="#0E2A47" stroke-width="1.2"/>
+            <circle cx="50" cy="50" r="44.5" fill="none" stroke="#C46B2D" stroke-width="0.5"/>
+
+            <!-- Tagline · top arc -->
+            <text font-family="Helvetica, Arial, sans-serif" font-size="6.6" font-weight="700" fill="#0E2A47" letter-spacing="1.8">
+              <textPath href="#lg-top-arc" startOffset="50%" text-anchor="middle">TRUST THE BEST</textPath>
             </text>
-            <text x="50" y="60" text-anchor="middle" font-family="Bitter, Georgia, serif" font-weight="700" font-size="34" fill="#0E2A47" letter-spacing="-1">N<tspan fill="#C46B2D">V</tspan></text>
-            <line x1="40" y1="70" x2="60" y2="70" stroke="#C46B2D" stroke-width="0.8"/>
-            <text x="50" y="80" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="5" font-weight="700" fill="#0E2A47" letter-spacing="2.5">EST · MMX</text>
+
+            <!-- Tagline · bottom arc -->
+            <text font-family="Helvetica, Arial, sans-serif" font-size="6.6" font-weight="700" fill="#0E2A47" letter-spacing="1.8">
+              <textPath href="#lg-bot-arc" startOffset="50%" text-anchor="middle">FLUSH THE REST</textPath>
+            </text>
+
+            <!-- Lateral fleurons separating top &amp; bottom arc text -->
+            <g fill="#C46B2D">
+              <circle cx="7"  cy="50" r="1.5"/>
+              <circle cx="93" cy="50" r="1.5"/>
+            </g>
+
+            <!-- Center NV monogram -->
+            <text x="50" y="55" text-anchor="middle" font-family="Bitter, Georgia, serif" font-weight="700" font-size="28" fill="#0E2A47" letter-spacing="-1">N<tspan fill="#C46B2D">V</tspan></text>
+
+            <!-- Hairline + EST · MMX below NV -->
+            <line x1="40" y1="64" x2="60" y2="64" stroke="#C46B2D" stroke-width="0.6"/>
+            <text x="50" y="72" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="4.6" font-weight="700" fill="#0E2A47" letter-spacing="2.4">EST · MMX</text>
           </svg>
         </span>
         <span class="logo__words">
           <span class="logo__mark">NV<span class="amp"></span>Plumbing</span>
-          <span class="logo__sub">Sydney<span class="dot"></span>Trust the best</span>
+          <span class="logo__sub"><em class="lead">Trust the Best</em><span class="dot"></span><em class="trail">Flush the Rest</em></span>
         </span>
       </a>
 
@@ -128,61 +151,18 @@
             <span class="row"><span class="row-inner">when it <span class="accent">matters.</span><span class="fleuron" aria-hidden="true">❖</span></span></span>
           </h1>
 
-          <div class="hero__rule" aria-hidden="true">
-            <span class="rule-line"></span>
-            <span class="rule-mark"></span>
-            <span class="rule-line"></span>
-          </div>
-
-          <p class="hero__intro">
-            <span class="dropcap">A</span>fifteen-year run on Sydney&rsquo;s old terraces, new builds and strata blocks &mdash; hot water, drains, leaks and gas, done by hand, finished neatly, and quoted before we lift a tool. Inner West, Eastern Suburbs &amp; North Shore.
-          </p>
-
-          <div class="hero__signature">
-            <span class="sig-mark">— Nicolas V.</span>
-            <span class="sig-meta">Plumber, est. 2010<br />Sydney, NSW</span>
-          </div>
-
-          <div class="hero__cta">
-            <a class="hero__phone" href="tel:0404966411" aria-label="Call NV Plumbing">
-              <span class="ring" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
-              </span>
-              <span class="phone-label">
-                <span class="phone-small">Call · 7 days</span>
-                <span class="phone-big">0404 966 411</span>
-              </span>
-            </a>
-
-            <a class="hero__link" href="#work">
-              See our work
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </a>
-          </div>
         </div>
 
         <!-- RIGHT · collage -->
         <div class="hero__collage" aria-hidden="true">
 
           <figure class="hero__plate hero__plate--sec">
-            <img src="https://img1.wsimg.com/isteam/ip/905c4099-077f-4466-8d7d-156bdd777326/blob-354e824.png" alt="" loading="eager" />
+            <img src="assets/img/gallery/v1.jpg" alt="" loading="eager" />
           </figure>
 
           <figure class="hero__plate hero__plate--main">
-            <span class="feature-badge">Feature · Recent</span>
-            <img src="https://img1.wsimg.com/isteam/ip/905c4099-077f-4466-8d7d-156bdd777326/2025-08-02.jpg" alt="NV Plumbing van on a recent Sydney job" loading="eager" />
-            <figcaption class="feature-cap">
-              <div class="cap-id">Job №&nbsp;847 · Mosman NSW</div>
-              <div class="cap-text">Same-day Rheem 170 hot water swap.</div>
-            </figcaption>
+            <img src="assets/img/gallery/bathroom.jpg" alt="Travertine main bathroom with freestanding tub and rain shower, North Shore Sydney" loading="eager" />
           </figure>
-
-          <aside class="hero__quote">
-            <span class="quote-tag">A recent review</span>
-            <span class="quote-stars">★★★★★</span>
-            <blockquote>&ldquo;Honest, neat and quick &mdash; the kind of tradie you keep on speed dial.&rdquo;</blockquote>
-            <cite>D. K. · Mosman</cite>
-          </aside>
 
         </div>
       </div>
@@ -570,46 +550,402 @@
       </div>
     </section>
 
-    <!-- ─── Reviews ───────────────────────────────────── -->
-    <section class="section testimonials" id="reviews">
+    <!-- ─── Reviews · Editorial slider ──────────────────── -->
+    <section class="section testimonials" id="reviews" aria-labelledby="reviews-title">
       <div class="container">
+
         <div class="testimonials__head reveal">
           <span class="eyebrow" style="color:#E89A65">Kind words</span>
-          <h2>What Sydney locals are saying.</h2>
+          <h2 id="reviews-title">What Sydney locals are saying.</h2>
           <p>Real reviews from real customers across the Inner West, Eastern Suburbs and North Shore.</p>
+
+          <div class="testimonials__badge" aria-label="Average rating five out of five, twenty verified Google reviews">
+            <span class="badge-stars" aria-hidden="true">★★★★★</span>
+            <span class="badge-score">5.0</span>
+            <span class="badge-divider" aria-hidden="true">·</span>
+            <span class="badge-meta">20 verified Google reviews</span>
+          </div>
         </div>
 
-        <div class="testimonials__grid reveal-stagger">
-          <article class="testimonials__card">
-            <span class="quote-mark">&ldquo;</span>
-            <span class="stars">★★★★★</span>
-            <blockquote>Called on a Sunday evening with a burst pipe under the sink. Turned up in under an hour, swapped the section out and even tidied up the cupboard. Felt very reassuring — will be calling again.</blockquote>
-            <div class="who">
-              <span class="avatar">SR</span>
-              <div class="who-meta"><strong>Sarah R.</strong><span>Marrickville · Hot water leak</span></div>
-            </div>
-          </article>
+        <div class="reviews-slider reveal" id="reviewsSlider"
+             role="region" aria-roledescription="carousel" aria-label="Customer reviews"
+             tabindex="0">
 
-          <article class="testimonials__card">
-            <span class="quote-mark">&ldquo;</span>
-            <span class="stars">★★★★★</span>
-            <blockquote>Quoted on the phone, stuck to it on the day. New Rheem 170 installed and running by lunchtime. Tidy work, friendly bloke, no mess left behind.</blockquote>
-            <div class="who">
-              <span class="avatar">DK</span>
-              <div class="who-meta"><strong>David K.</strong><span>Mosman · Hot water swap</span></div>
-            </div>
-          </article>
+          <!-- Decorative giant numeral -->
+          <span class="reviews-slider__bignum" aria-hidden="true" data-bignum>01</span>
 
-          <article class="testimonials__card">
-            <span class="quote-mark">&ldquo;</span>
-            <span class="stars">★★★★★</span>
-            <blockquote>I manage a small strata in Bondi and finally found a plumber who answers the phone, gives a fair quote and gets it done. Has saved me countless headaches.</blockquote>
-            <div class="who">
-              <span class="avatar">JL</span>
-              <div class="who-meta"><strong>Jenna L.</strong><span>Bondi · Strata manager</span></div>
+          <!-- Featured card track -->
+          <div class="reviews-slider__viewport" aria-live="polite" data-viewport>
+
+            <article class="review-card is-active" data-slide="0" aria-roledescription="slide" aria-label="1 of 20">
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Today I had a plumber Nick from NV plumbing come to my plac&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/ramin-ghanbari-saisan.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Ramin Ghanbari Saisan</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2026-05-23">23 May 2026</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="1" aria-roledescription="slide" aria-label="2 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Very happy with Nick&rsquo;s work. He replaced my hot water system&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/yong-zhang.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Yong Zhang</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2026-04-06">06 Apr 2026</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="2" aria-roledescription="slide" aria-label="3 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">We&rsquo;ve used NV Plumbing for a number of years &amp; always foun&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/vortex.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Vortex</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2025-11-25">25 Nov 2025</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="3" aria-roledescription="slide" aria-label="4 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Nick is an outstanding plumber&mdash;professional, punctua&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/keyur-khandel.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Keyur Khandel</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2025-08-07">07 Aug 2025</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="4" aria-roledescription="slide" aria-label="5 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Nick from NV Plumbing has been handling our plumbing is&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/jun-kurosawa.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Jun Kurosawa</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2025-04-28">28 Apr 2025</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="5" aria-roledescription="slide" aria-label="6 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Nick from NV Plumbing is a pleasure to deal with. He is eff&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/linh-renel.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Linh Renel</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2025-02-18">18 Feb 2025</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="6" aria-roledescription="slide" aria-label="7 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Nick is absolutely amazing at what he does. We have had m&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/siddharth-mepani.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Siddharth Mepani</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2025-01-04">04 Jan 2025</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="7" aria-roledescription="slide" aria-label="8 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Nick is excellent.</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/nax-hq.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Nax Hq</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-12-08">08 Dec 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="8" aria-roledescription="slide" aria-label="9 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Nic is most professional in his dealings with his clients and I f&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/hon-sing-mah.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Hon Sing Mah</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-12-07">07 Dec 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="9" aria-roledescription="slide" aria-label="10 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">I have only used NV Plumbing throughout 4 houses that I hav&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/michael-johansen.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Michael Johansen</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-12-07">07 Dec 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="10" aria-roledescription="slide" aria-label="11 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Nick and Karen have been our plumbing team for several year&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/robert-krochmalik.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Robert Krochmalik</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-12-07">07 Dec 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="11" aria-roledescription="slide" aria-label="12 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Fast, clean, great quality, reasonable price !!! Definitely r&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/valery-dudzich.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Valery Dudzich</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-12-07">07 Dec 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="12" aria-roledescription="slide" aria-label="13 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Highly recommended, on time and reliable professional service.</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/tom-harry.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Tom Harry</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-11-16">16 Nov 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="13" aria-roledescription="slide" aria-label="14 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Nick was great; punctual and clear with what needed to be d&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/grandpa-weatherwax.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Grandpa Weatherwax</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-10-26">26 Oct 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="14" aria-roledescription="slide" aria-label="15 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">NV plumbing provides professional services. Nick atte&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/victoria-tao.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Victoria Tao</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-10-05">05 Oct 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="15" aria-roledescription="slide" aria-label="16 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">We recently used NV Plumbing and had a very positive experi&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/jess-p.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Jess P</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-10-03">03 Oct 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="16" aria-roledescription="slide" aria-label="17 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Booked NV to do a big job, did a fantastic job at an awesome pri&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/michael-png.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Michael Png</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-10-02">02 Oct 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="17" aria-roledescription="slide" aria-label="18 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">Called NV several times to fix various plumbing issues aroun&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/dino-siswadi.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Dino Siswadi</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-09-25">25 Sep 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="18" aria-roledescription="slide" aria-label="19 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">I highly recommend Nick of NV Plumbing for any plumbing wo&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/michael-kurosawa.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>michaelkurosawa. infinity</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-09-16">16 Sep 2024</time>
+              </footer>
+            </article>
+
+            <article class="review-card" data-slide="19" aria-roledescription="slide" aria-label="20 of 20" hidden>
+              <span class="review-card__qm" aria-hidden="true">&ldquo;</span>
+              <span class="review-card__stars" aria-label="5 out of 5 stars">★★★★★</span>
+              <blockquote class="review-card__quote">My company has been engaging Nick&rsquo;s services for years. He is&hellip;</blockquote>
+              <footer class="review-card__sig">
+                <span class="review-card__avatar"><img src="assets/img/reviewers/jonathan-buhne.jpg" alt="" loading="lazy" width="48" height="48" /></span>
+                <div class="review-card__who">
+                  <strong>Jonathan Buhne</strong>
+                  <span class="review-card__meta">Verified Google review</span>
+                </div>
+                <time class="review-card__date" datetime="2024-02-16">16 Feb 2024</time>
+              </footer>
+            </article>
+
+
+          </div>
+
+          <!-- Controls -->
+          <div class="reviews-slider__controls">
+
+            <div class="reviews-slider__counter" aria-hidden="true">
+              <span data-current>01</span><span class="slash">/</span><span class="total">20</span>
             </div>
-          </article>
+
+            <div class="reviews-slider__progress" aria-hidden="true">
+              <span class="reviews-slider__progress-bar" data-progress></span>
+            </div>
+
+            <div class="reviews-slider__nav">
+              <button type="button" class="reviews-slider__btn" data-prev aria-label="Previous review">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+              </button>
+              <button type="button" class="reviews-slider__btn reviews-slider__btn--play" data-play aria-label="Pause autoplay" aria-pressed="true">
+                <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="7" y="6" width="3" height="12" fill="currentColor"/><rect x="14" y="6" width="3" height="12" fill="currentColor"/></svg>
+                <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg>
+              </button>
+              <button type="button" class="reviews-slider__btn" data-next aria-label="Next review">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Dots -->
+          <ol class="reviews-slider__dots" role="tablist" aria-label="Choose a review" data-dots></ol>
+
         </div>
+
+        <p class="testimonials__footnote">
+          Names abbreviated for privacy. Verified across Google, Facebook &amp; direct customer feedback.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ─── Scan to act — Review & Online Appointments ─── -->
+    <section class="section scan-strip" id="scan" aria-labelledby="scan-title">
+      <div class="container">
+
+        <header class="scan-strip__head reveal">
+          <span class="eyebrow">Scan, don&rsquo;t type</span>
+          <h2 id="scan-title">Two quick taps to talk to us.</h2>
+          <p>Open your camera, hold it over a code &mdash; you&rsquo;re in.</p>
+        </header>
+
+        <div class="scan-strip__grid reveal-stagger">
+
+          <article class="scan-card">
+            <span class="scan-card__folio">Nº&nbsp;01</span>
+            <div class="scan-card__qr">
+              <img src="assets/img/qr-review.png" alt="QR code linking to NV Plumbing&rsquo;s Google reviews page" width="260" height="260" loading="lazy" />
+              <span class="scan-card__pulse" aria-hidden="true"></span>
+            </div>
+            <div class="scan-card__body">
+              <span class="scan-card__label">Kind words welcome</span>
+              <h3>We would appreciate your review.</h3>
+              <p>Loved the work? Scan the code with your phone camera to leave us a Google review &mdash; it takes a minute and means everything.</p>
+              <a class="scan-card__link" href="https://maps.google.com/maps?cid=6422253023456179399" target="_blank" rel="noopener">
+                <span>Or tap to open Google reviews</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="scan-card">
+            <span class="scan-card__folio">Nº&nbsp;02</span>
+            <div class="scan-card__qr">
+              <img src="assets/img/qr-appointment.png" alt="QR code that dials NV Plumbing on 0404 966 411" width="260" height="260" loading="lazy" />
+              <span class="scan-card__pulse" aria-hidden="true"></span>
+            </div>
+            <div class="scan-card__body">
+              <span class="scan-card__label">Booked in minutes</span>
+              <h3>Online appointments.</h3>
+              <p>Quote, callout, hot-water swap, the lot. Scan to call us straight away &mdash; or tap the number to dial.</p>
+              <a class="scan-card__link" href="tel:+61404966411">
+                <span>Or tap to call 0404 966 411</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="14" height="14"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
       </div>
     </section>
 
@@ -638,7 +974,7 @@
 
             <div class="work__meta">
               <div class="work__counter">
-                <span>07</span>
+                <span>12</span>
                 <span class="ct-label">Recent<br />jobs on file</span>
               </div>
               <p class="work__aside">
@@ -650,86 +986,186 @@
           </div>
         </header>
 
-        <!-- bento composition -->
-        <div class="work__grid reveal-stagger">
+        <!-- Premium gallery slider -->
+        <div class="work-slider reveal" id="workSlider" role="region" aria-roledescription="carousel" aria-label="Photo gallery" tabindex="0">
 
-          <figure class="work__tile work__tile--xl">
-            <span class="work__id">Job · 847</span>
-            <img src="https://img1.wsimg.com/isteam/ip/905c4099-077f-4466-8d7d-156bdd777326/2025-08-02.jpg" alt="NV Plumbing van on a recent Sydney job" loading="lazy" />
-            <figcaption class="work__caption">
-              <div class="cap-label">Mosman · Hot water</div>
-              <div class="cap-title">Same-day Rheem 170 swap, gas storage unit</div>
-            </figcaption>
-            <span class="work__open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </span>
-          </figure>
+          <div class="work-slider__stage" data-stage>
 
-          <figure class="work__tile work__tile--lg">
-            <span class="work__id">Job · 822</span>
-            <img src="https://img1.wsimg.com/isteam/ip/905c4099-077f-4466-8d7d-156bdd777326/blob-354e824.png" alt="Pipework job by NV Plumbing" loading="lazy" />
-            <figcaption class="work__caption">
-              <div class="cap-label">Newtown · Repair</div>
-              <div class="cap-title">Buried copper line, leak found &amp; rerouted</div>
-            </figcaption>
-            <span class="work__open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </span>
-          </figure>
+            <button type="button" class="work-slider__arrow work-slider__arrow--prev" data-prev aria-label="Previous photo">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+            </button>
+            <button type="button" class="work-slider__arrow work-slider__arrow--next" data-next aria-label="Next photo">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+            </button>
 
-          <figure class="work__tile work__tile--md">
-            <span class="work__id">Job · 815</span>
-            <img src="https://img1.wsimg.com/isteam/ip/905c4099-077f-4466-8d7d-156bdd777326/blob-f4dd242.png" alt="Finished bathroom rough-in" loading="lazy" />
-            <figcaption class="work__caption">
-              <div class="cap-label">Bondi · Bathroom</div>
-              <div class="cap-title">Full rough-in for a tiled bathroom reno</div>
-            </figcaption>
-            <span class="work__open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </span>
-          </figure>
+            <div class="work-slider__track" data-track aria-live="polite">
 
-          <article class="work__tile work__tile--card work__tile--info">
-            <div class="info-num">15<sup style="font-size:0.4em">+</sup></div>
-            <p class="info-text">&ldquo;Fifteen years deep in Sydney&rsquo;s pipework &mdash; you start to know the buildings by their bends.&rdquo;</p>
-            <span class="info-foot">From the workshop</span>
-          </article>
+              <figure class="work-slide is-active" data-slide="0" aria-roledescription="slide" aria-label="1 of 12">
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/bathroom.jpg" alt="Carrara marble bathroom with freestanding bathtub, rain shower & wall-hung vanity" loading="eager" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0847</span>
+                  <span class="work-slide__cat">Bathroom &middot; Travertine</span>
+                  <h3 class="work-slide__title">Freestanding tub, rain shower &amp; wall-hung vanity</h3>
+                  <p class="work-slide__sub">Full bathroom rough-in &amp; finishing, Sydney&rsquo;s North Shore.</p>
+                </figcaption>
+              </figure>
 
-          <figure class="work__tile work__tile--wide">
-            <span class="work__id">Job · 803</span>
-            <img src="https://img1.wsimg.com/isteam/ip/905c4099-077f-4466-8d7d-156bdd777326/2025-08-02.jpg" alt="Hot water installation" loading="lazy" />
-            <figcaption class="work__caption">
-              <div class="cap-label">Chatswood · Hot water</div>
-              <div class="cap-title">Old electric out, new Rheem 250 commissioned the same afternoon</div>
-            </figcaption>
-            <span class="work__open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </span>
-          </figure>
+              <figure class="work-slide" data-slide="1" aria-roledescription="slide" aria-label="2 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/blob-faf1a35.png" alt="Heritage clawfoot freestanding tub on herringbone marble floor" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0842</span>
+                  <span class="work-slide__cat">Bathroom &middot; Heritage</span>
+                  <h3 class="work-slide__title">Clawfoot tub on herringbone marble.</h3>
+                  <p class="work-slide__sub">Carrara walls, floor mixer, chrome trim &mdash; classic restraint, modern plumbing.</p>
+                </figcaption>
+              </figure>
 
-          <figure class="work__tile work__tile--md">
-            <span class="work__id">Job · 791</span>
-            <img src="https://img1.wsimg.com/isteam/ip/905c4099-077f-4466-8d7d-156bdd777326/blob-354e824.png" alt="Drain clearing work" loading="lazy" />
-            <figcaption class="work__caption">
-              <div class="cap-label">Marrickville · Drains</div>
-              <div class="cap-title">CCTV inspection &amp; high-pressure jet clearance</div>
-            </figcaption>
-            <span class="work__open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </span>
-          </figure>
+              <figure class="work-slide" data-slide="2" aria-roledescription="slide" aria-label="3 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/kitchen.jpg" alt="Kitchen with marble splashback, gas cooktop and black double sink" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0833</span>
+                  <span class="work-slide__cat">Kitchen &middot; Marble</span>
+                  <h3 class="work-slide__title">Five-burner gas hob &amp; black double sink.</h3>
+                  <p class="work-slide__sub">Calacatta splashback &amp; benchtop; gas line, sink &amp; mixer refit.</p>
+                </figcaption>
+              </figure>
 
-          <figure class="work__tile work__tile--md">
-            <span class="work__id">Job · 776</span>
-            <img src="https://img1.wsimg.com/isteam/ip/905c4099-077f-4466-8d7d-156bdd777326/blob-f4dd242.png" alt="Strata plumbing maintenance" loading="lazy" />
-            <figcaption class="work__caption">
-              <div class="cap-label">Bondi · Strata</div>
-              <div class="cap-title">Block-wide tap &amp; mixer refit across eight units</div>
-            </figcaption>
-            <span class="work__open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </span>
-          </figure>
+              <figure class="work-slide" data-slide="3" aria-roledescription="slide" aria-label="4 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/k3.jpg" alt="Stone benchtop with integrated gas cooktop and built-in oven" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0828</span>
+                  <span class="work-slide__cat">Kitchen &middot; Stone</span>
+                  <h3 class="work-slide__title">Integrated cooktop on book-matched stone.</h3>
+                  <p class="work-slide__sub">Gas connection &amp; commissioning for a custom kitchen install.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="work-slide" data-slide="4" aria-roledescription="slide" aria-label="5 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/kitchen2.jpg" alt="Stone waterfall island bench with double sink" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0822</span>
+                  <span class="work-slide__cat">Kitchen &middot; Waterfall</span>
+                  <h3 class="work-slide__title">Waterfall island bench, twin sink.</h3>
+                  <p class="work-slide__sub">Sink, dishwasher &amp; fridge-line plumbing for a full kitchen renovation.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="work-slide" data-slide="5" aria-roledescription="slide" aria-label="6 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/v1.jpg" alt="Twin-basin oak vanity with chrome mixer taps" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0815</span>
+                  <span class="work-slide__cat">Bathroom &middot; Vanity</span>
+                  <h3 class="work-slide__title">Twin-basin oak vanity, chrome mixers.</h3>
+                  <p class="work-slide__sub">Wall plumbing rough-in, mixer install, leak-tested &amp; commissioned.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="work-slide" data-slide="6" aria-roledescription="slide" aria-label="7 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/v2.jpg" alt="Wall-hung oak vanity with black tapware on patterned tile floor" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0809</span>
+                  <span class="work-slide__cat">Bathroom &middot; Wall-hung</span>
+                  <h3 class="work-slide__title">Wall-hung oak vanity, black mixer.</h3>
+                  <p class="work-slide__sub">Cement-tile floor, subway wall &amp; matte-black tapware install.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="work-slide" data-slide="7" aria-roledescription="slide" aria-label="8 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/b2.jpg" alt="Minimalist ensuite with wall-hung toilet, basin and round mirror" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0803</span>
+                  <span class="work-slide__cat">Bathroom &middot; Ensuite</span>
+                  <h3 class="work-slide__title">Minimalist ensuite, soft grey tile.</h3>
+                  <p class="work-slide__sub">Concealed cistern, vanity &amp; round mirror &mdash; clean &amp; tight.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="work-slide" data-slide="8" aria-roledescription="slide" aria-label="9 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/blob-01886e2.png" alt="Granite-look black double sink with high-arc chrome mixer" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0798</span>
+                  <span class="work-slide__cat">Kitchen &middot; Sink</span>
+                  <h3 class="work-slide__title">Granite double sink, high-arc chrome.</h3>
+                  <p class="work-slide__sub">Cut-in install, water and waste plumbed and sealed.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="work-slide" data-slide="9" aria-roledescription="slide" aria-label="10 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/blob-409131c.png" alt="Rheem electric storage hot water unit installed under-cabinet" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0791</span>
+                  <span class="work-slide__cat">Hot water &middot; Rheem</span>
+                  <h3 class="work-slide__title">Under-cabinet Rheem swap.</h3>
+                  <p class="work-slide__sub">Old unit out, new Rheem in &mdash; new isolation valves, tidy copper.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="work-slide" data-slide="10" aria-roledescription="slide" aria-label="11 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/bbq.jpg" alt="Built-in BBQ on stone benchtop in outdoor kitchen" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0784</span>
+                  <span class="work-slide__cat">Outdoor &middot; Gas</span>
+                  <h3 class="work-slide__title">Built-in BBQ on Calacatta bench.</h3>
+                  <p class="work-slide__sub">Gas line run, fitter compliance plate, certified the same day.</p>
+                </figcaption>
+              </figure>
+
+              <figure class="work-slide" data-slide="11" aria-roledescription="slide" aria-label="12 of 12" hidden>
+                <div class="work-slide__media">
+                  <img src="assets/img/gallery/drainage.jpg" alt="External stormwater pipe run beside the house, ready to backfill" loading="lazy" />
+                </div>
+                <figcaption class="work-slide__cap">
+                  <span class="work-slide__folio">Nº&nbsp;0776</span>
+                  <span class="work-slide__cat">Drainage &middot; Stormwater</span>
+                  <h3 class="work-slide__title">External stormwater run laid in.</h3>
+                  <p class="work-slide__sub">New PVC run with sweeping junctions, ready for backfill.</p>
+                </figcaption>
+              </figure>
+
+            </div>
+
+          </div>
+
+          <div class="work-slider__bar">
+
+            <div class="work-slider__counter" aria-hidden="true">
+              <span data-current>01</span><span class="slash">/</span><span class="total">12</span>
+            </div>
+
+            <div class="work-slider__progress" aria-hidden="true">
+              <span class="work-slider__progress-bar" data-progress></span>
+            </div>
+
+            <button type="button" class="work-slider__play" data-play aria-label="Pause autoplay" aria-pressed="true">
+              <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="7" y="6" width="3" height="12" fill="currentColor"/><rect x="14" y="6" width="3" height="12" fill="currentColor"/></svg>
+              <svg class="ico-play"  viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg>
+            </button>
+
+          </div>
+
+          <ol class="work-slider__thumbs" role="tablist" aria-label="Choose a photo" data-thumbs></ol>
 
         </div>
 
@@ -1051,7 +1487,7 @@
         <span class="credit">
           Made by
           <svg class="heart" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14"><path fill="#C46B2D" d="M12 21s-7.5-4.6-9.6-9.2C.6 7.6 3 4 6.6 4c2 0 3.6 1 4.4 2.5h2c.8-1.5 2.4-2.5 4.4-2.5 3.6 0 6 3.6 4.2 7.8C19.5 16.4 12 21 12 21z"/></svg>
-          <a href="https://www.capsuledigital.com.au/" target="_blank" rel="noopener">Capsule Digital</a>
+          <a href="https://www.capsuledigital.com.au/" target="_blank" rel="noopener">Capsule<span class="credit-bold">DIGITAL</span></a>
         </span>
       </div>
     </div>

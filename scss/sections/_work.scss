@@ -465,3 +465,344 @@
     }
   }
 }
+
+// ─────────────────────────────────────────────────────────────
+// Premium gallery slider
+// ─────────────────────────────────────────────────────────────
+.work-slider {
+  position: relative;
+  outline: none;
+  margin: 0 auto;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px rgba($brand-copper, 0.4);
+    border-radius: $radius-lg;
+  }
+
+  // ── Stage (the big image area) ───────────────────────────
+  &__stage {
+    position: relative;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    background: $brand-navy-deep;
+    isolation: isolate;
+    box-shadow: 0 30px 60px rgba($brand-navy, 0.18), 0 8px 20px rgba($brand-navy, 0.10);
+  }
+
+  &__track {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    @include down($bp-md) { aspect-ratio: 4 / 3; }
+    @include down($bp-sm) { aspect-ratio: 1 / 1; }
+  }
+
+  // ── Arrow buttons ────────────────────────────────────────
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    background: rgba($brand-navy, 0.55);
+    backdrop-filter: blur(8px);
+    color: $cream;
+    border: 1px solid rgba($paper, 0.18);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background .25s $ease, color .25s $ease, transform .25s $ease, opacity .25s $ease;
+
+    svg { width: 20px; height: 20px; }
+
+    &:hover {
+      background: $brand-copper-soft;
+      color: $brand-navy-deep;
+      border-color: $brand-copper-soft;
+    }
+    &:active { transform: translateY(-50%) scale(0.94); }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($brand-copper-soft, 0.65);
+    }
+
+    &--prev { left: 18px; }
+    &--next { right: 18px; }
+
+    @include down($bp-md) {
+      width: 44px;
+      height: 44px;
+      &--prev { left: 10px; }
+      &--next { right: 10px; }
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Single slide
+// ─────────────────────────────────────────────────────────────
+.work-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  display: block;
+
+  &[hidden] { display: none; }
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transform: scale(1.04);
+      transition: transform 7s ease-out;
+    }
+
+    // Editorial gradient veil to keep caption legible
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.18) 35%, transparent 60%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.25) 0%, transparent 35%);
+      pointer-events: none;
+    }
+  }
+
+  // Subtle Ken-Burns on active slide
+  &.is-active &__media img {
+    transform: scale(1.10);
+  }
+
+  &.is-active {
+    animation: work-slide-in 0.7s $ease both;
+  }
+
+  &__cap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 38px 56px 36px;
+    color: $cream;
+    z-index: 2;
+    max-width: 720px;
+
+    @include down($bp-md) { padding: 24px 22px 22px; }
+  }
+
+  &__folio {
+    display: inline-block;
+    font-family: $font-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba($cream, 0.85);
+    padding: 4px 10px;
+    border: 1px solid rgba($paper, 0.32);
+    border-radius: $radius-pill;
+    margin-bottom: 14px;
+    backdrop-filter: blur(4px);
+    background: rgba($brand-navy-deep, 0.18);
+  }
+
+  &__cat {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $brand-copper-soft;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-weight: 600;
+    font-size: clamp(1.55rem, 2.6vw, 2.25rem);
+    line-height: 1.15;
+    color: $paper;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+  }
+
+  &__sub {
+    color: rgba($cream, 0.86);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 56ch;
+  }
+}
+
+@keyframes work-slide-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Control bar (counter + progress + play/pause)
+// ─────────────────────────────────────────────────────────────
+.work-slider__bar {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 22px;
+
+  @include down($bp-md) {
+    grid-template-columns: 1fr auto;
+    .work-slider__counter { grid-column: 1; }
+    .work-slider__progress { grid-column: 1 / -1; order: 3; }
+    .work-slider__play { grid-column: 2; }
+  }
+}
+
+.work-slider__counter {
+  font-family: $font-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: $brand-navy;
+  letter-spacing: 0.06em;
+
+  .slash {
+    margin: 0 6px;
+    color: $brand-copper;
+  }
+  .total { color: rgba($brand-navy, 0.45); }
+}
+
+.work-slider__progress {
+  position: relative;
+  height: 1px;
+  background: rgba($brand-navy, 0.18);
+  overflow: hidden;
+}
+.work-slider__progress-bar {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(90deg, $brand-copper, $brand-navy);
+  transition: width 0.1s linear;
+}
+
+.work-slider__play {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: $brand-navy;
+  border: 1px solid rgba($brand-navy, 0.25);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .25s $ease, color .25s $ease, border-color .25s $ease;
+
+  svg { width: 16px; height: 16px; display: block; }
+
+  .ico-play  { display: none; }
+  .ico-pause { display: block; }
+
+  &:hover {
+    background: $brand-navy;
+    color: $cream;
+    border-color: $brand-navy;
+  }
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($brand-copper, 0.45);
+  }
+
+  .work-slider.is-paused & {
+    .ico-play  { display: block; }
+    .ico-pause { display: none; }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Thumbnail strip
+// ─────────────────────────────────────────────────────────────
+.work-slider__thumbs {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+
+  @include down($bp-lg) { grid-template-columns: repeat(6, 1fr); }
+  @include down($bp-sm) { grid-template-columns: repeat(4, 1fr); }
+
+  li { display: block; }
+
+  button {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    padding: 0;
+    border: 0;
+    border-radius: $radius-sm;
+    overflow: hidden;
+    cursor: pointer;
+    background: $line;
+    outline: none;
+    transition: transform .25s $ease, box-shadow .25s $ease, filter .25s $ease;
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(0.4) brightness(0.85);
+      transition: filter .25s $ease, transform .4s $ease;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: $radius-sm;
+      border: 1px solid transparent;
+      transition: border-color .25s $ease;
+      pointer-events: none;
+    }
+
+    &:hover img {
+      filter: grayscale(0) brightness(1);
+      transform: scale(1.04);
+    }
+
+    &[aria-current="true"] {
+      img { filter: grayscale(0) brightness(1); }
+      &::after { border-color: $brand-copper; }
+      box-shadow: 0 6px 14px rgba($brand-navy, 0.18);
+    }
+
+    &:focus-visible::after {
+      border-color: $brand-copper;
+      box-shadow: 0 0 0 2px rgba($brand-copper, 0.4);
+    }
+  }
+}
+
+// Reduce motion
+@media (prefers-reduced-motion: reduce) {
+  .work-slide__media img { transition: none; }
+  .work-slide.is-active { animation: none; }
+  .work-slider__progress-bar { transition: none; }
+}

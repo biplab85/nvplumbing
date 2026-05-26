@@ -433,35 +433,68 @@
     position: absolute;
     overflow: hidden;
     background: $brand-navy;
+    // Premium arch mask: full semicircle top, flat sides &amp; bottom
+    // (perfect arch geometry for 4/5 aspect plates)
+    border-radius: 50% 50% 0 0 / 40% 40% 0 0;
+    transition: transform .6s $ease, box-shadow .6s $ease, border-radius .6s $ease;
 
     img {
       width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform 12s linear;
+      transform-origin: center;
+      will-change: transform;
     }
-    &:hover img { transform: scale(1.08); }
 
-    // Main feature plate — refined frame
+    // soft veil at the bottom so captions sit on contrast
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba($brand-navy-deep, 0.55) 0%, transparent 38%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    // ── Main feature plate — refined frame + slow drift
     &--main {
-      top: 12px;
-      right: 4%;
-      width: 80%;
+      top: 0;
+      right: 0;
+      width: 72%;
       aspect-ratio: 4/5;
       z-index: 2;
+
+      @include down($bp-lg) { width: 68%; }
+      @include down($bp-md) { width: 100%; right: 0; }
       box-shadow:
-        0 0 0 1px rgba($brand-copper, 0.35),
+        0 0 0 1px rgba($brand-copper, 0.42),
         0 0 0 8px $cream,
         0 0 0 9px rgba($brand-navy, 0.12),
-        0 36px 70px rgba($brand-navy, 0.22);
+        0 40px 80px -16px rgba($brand-navy, 0.30),
+        0 16px 32px -10px rgba($brand-navy, 0.18);
+
+      img {
+        animation: hero-drift 22s ease-in-out infinite alternate;
+      }
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow:
+          0 0 0 1px $brand-copper,
+          0 0 0 8px $cream,
+          0 0 0 9px rgba($brand-navy, 0.18),
+          0 48px 96px -16px rgba($brand-navy, 0.40),
+          0 18px 36px -10px rgba($brand-navy, 0.22);
+      }
 
       .feature-badge {
         position: absolute;
-        top: 18px; left: 18px;
+        top: 18px; right: 18px;
         z-index: 3;
         display: flex;
         align-items: center;
         gap: 9px;
-        background: $brand-navy-deep;
+        background: rgba($brand-navy-deep, 0.85);
+        backdrop-filter: blur(8px);
         color: $cream;
         padding: 9px 16px;
         font-family: $font-sans;
@@ -469,25 +502,33 @@
         font-weight: 700;
         letter-spacing: 0.32em;
         text-transform: uppercase;
-        border: 1px solid rgba($brand-copper-soft, 0.45);
+        border: 1px solid rgba($brand-copper-soft, 0.55);
 
         &::before {
           content: '';
           width: 5px; height: 5px;
           background: $brand-copper-soft;
           transform: rotate(45deg);
+          animation: hero-pulse 2.6s ease-in-out infinite;
         }
       }
 
       .feature-cap {
         position: absolute;
-        left: 18px; right: 18px; bottom: 18px;
+        right: 18px; bottom: 18px;
+        left: auto;
+        max-width: 64%;
         z-index: 3;
-        padding: 16px 20px;
-        background: rgba($paper, 0.96);
-        backdrop-filter: blur(8px);
+        padding: 14px 18px 12px;
+        background: rgba($paper, 0.97);
+        backdrop-filter: blur(10px);
         border-left: 3px solid $brand-copper;
         border-top: 1px solid rgba($brand-navy, 0.10);
+        box-shadow: 0 12px 28px -10px rgba($brand-navy, 0.25);
+
+        @include down($bp-md) {
+          left: 18px; right: 18px; max-width: none;
+        }
 
         .cap-id {
           font-family: $font-sans;
@@ -499,39 +540,73 @@
         }
         .cap-text {
           font-family: $font-serif;
-          font-size: 1.02rem;
+          font-size: 1.04rem;
           font-weight: 600;
           color: $brand-navy;
           margin-top: 6px;
           line-height: 1.35;
+          letter-spacing: -0.005em;
         }
       }
     }
 
-    // Secondary plate
+    // ── Secondary plate — top-LEFT vertical accent
     &--sec {
-      bottom: -24px;
+      top: 56px;
       left: 0;
-      width: 48%;
-      aspect-ratio: 1/1;
+      width: 32%;
+      aspect-ratio: 4/5;
       z-index: 3;
+      // (uses base arch shape from &__plate)
       box-shadow:
         0 0 0 1px rgba($brand-navy, 0.10),
         0 0 0 8px $cream,
         0 0 0 9px rgba($brand-navy, 0.08),
-        0 22px 40px rgba($brand-navy, 0.16);
+        0 26px 48px -14px rgba($brand-navy, 0.22);
+
+      img {
+        animation: hero-drift-rev 26s ease-in-out infinite alternate;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 0 0 1px rgba($brand-copper, 0.55),
+          0 0 0 8px $cream,
+          0 0 0 9px rgba($brand-navy, 0.12),
+          0 32px 56px -14px rgba($brand-navy, 0.30);
+      }
+
+      .hero__plate-tag {
+        position: absolute;
+        z-index: 3;
+        left: 12px;
+        bottom: 12px;
+        padding: 6px 10px 5px;
+        background: rgba($paper, 0.94);
+        backdrop-filter: blur(8px);
+        font-family: $font-sans;
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: $brand-navy;
+        border-left: 2px solid $brand-copper;
+      }
 
       @include down($bp-md) { display: none; }
     }
   }
 
-  // Premium quote card — clean hairline editorial, no rotation
+  // Premium quote card — anchored bottom-LEFT, below secondary plate
   &__quote {
     position: absolute;
     z-index: 4;
-    bottom: 26%;
-    right: -28px;
-    width: 240px;
+    bottom: -18px;
+    left: 0;
+    width: 34%;
+    min-width: 220px;
+    max-width: 260px;
     background: $paper;
     color: $brand-navy;
     padding: 22px 22px 18px;
@@ -665,6 +740,25 @@
 .hero-anim > *:nth-child(7) { animation-delay: 0.78s; }
 
 @keyframes heroIn { to { opacity: 1; transform: none; } }
+
+// Continuous slow drift on hero plates (Ken Burns)
+@keyframes hero-drift {
+  0%   { transform: scale(1.04) translate3d(-1%, -1%, 0); }
+  100% { transform: scale(1.10) translate3d( 1%,  1%, 0); }
+}
+@keyframes hero-drift-rev {
+  0%   { transform: scale(1.06) translate3d( 1%,  0%, 0); }
+  100% { transform: scale(1.12) translate3d(-1%, -1%, 0); }
+}
+@keyframes hero-pulse {
+  0%, 100% { transform: rotate(45deg) scale(1);   opacity: 1; }
+  50%      { transform: rotate(45deg) scale(1.6); opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__plate img { animation: none !important; }
+  .hero__plate .feature-badge::before { animation: none !important; }
+}
 @keyframes hero-ticker {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
